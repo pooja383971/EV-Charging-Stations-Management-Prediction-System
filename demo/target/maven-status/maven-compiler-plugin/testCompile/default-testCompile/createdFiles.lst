@@ -1,0 +1,5 @@
+com\example\demo\DemoApplication.class
+com\example\demo\model\Station.class
+com\example\demo\controller\StationController.class
+com\example\demo\repository\StationRepository.class
+com\example\demo\controller\PredictionController.class

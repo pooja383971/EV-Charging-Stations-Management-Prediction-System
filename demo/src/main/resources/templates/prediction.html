@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Charging Time Prediction</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #00b894;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00997a;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #00b894;
+        }
+
+        .nav {
+            margin-top: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: #0984e3;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>⚡ Charging Time Prediction</h2>
+
+    <form action="/predict" method="post">
+        <input type="number" name="capacity" placeholder="Battery Capacity (kWh)" required />
+        <input type="number" name="current" placeholder="Current Charge (%)" required />
+        <input type="number" name="target" placeholder="Target Charge (%)" required />
+        <input type="number" name="power" placeholder="Charger Power (kW)" required />
+
+        <button type="submit">Predict Charging Time</button>
+    </form>
+
+    <!-- Output -->
+    <div class="result" th:if="${time}">
+        Estimated Charging Time: <span th:text="${time}"></span> hours
+    </div>
+
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/stations">Stations</a>
+    </div>
+</div>
+
+</body>
+</html>
