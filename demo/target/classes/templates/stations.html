@@ -2,111 +2,42 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Charging Stations</title>
-
-    <style>
-        body {
-            background: #f4f6f8;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            width: 90%;
-            margin: 30px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead {
-            background: #1abc9c;
-            color: white;
-        }
-
-        th, td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-            text-align: center;
-        }
-
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        a.map-link {
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a.map-link:hover {
-            text-decoration: underline;
-        }
-
-        .nav {
-            margin-bottom: 15px;
-        }
-
-        .nav a {
-            margin-right: 15px;
-            text-decoration: none;
-            color: #0066cc;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-
 <body>
+<div class="overlay">
 
-<div class="container">
-
-    <div class="nav">
+<div class="navbar">
+    <h2>⚡ Stations</h2>
+    <div>
         <a href="/">Home</a>
-        <a href="/add">Add Station</a>
-        <a href="/prediction">Prediction</a>
+        <a href="/prediction">Calculator</a>
+        <a href="/add">
+            <button class="btn">Add Station</button>
+        </a>
+
+
     </div>
+</div>
 
-    <h2>Charging Stations</h2>
+<div class="cards-container">
 
-    <table>
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Power (kW)</th>
-            <th>Map</th>
-        </tr>
-        </thead>
+<div th:each="station : ${stations}" class="card">
 
-        <tbody>
-        <tr th:each="station, stat : ${stations}">
-            <td th:text="${stat.index + 1}"></td>
-            <td th:text="${station.name}"></td>
-            <td th:text="${station.location}"></td>
-            <td th:text="${station.power}"></td>
-            <td>
-                <a class="map-link"
-                   th:href="'https://www.google.com/maps/search/?api=1&query=' + ${station.location}"
-                   target="_blank">
-                    📍 View Map
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <h3 th:text="${station.name}"></h3>
+    <p><strong>Location:</strong> <span th:text="${station.location}"></span></p>
+    <p><strong>Power:</strong> <span th:text="${station.power}"></span> kW</p>
+    <p><strong>Cost:</strong> ₹ <span th:text="${station.costPerKwh}"></span>/kWh</p>
+
+    <a th:href="'https://www.google.com/maps/search/' + ${station.location}"
+       target="_blank">
+        <button class="btn">View Map</button>
+    </a>
 
 </div>
 
+</div>
+
+</div>
 </body>
 </html>

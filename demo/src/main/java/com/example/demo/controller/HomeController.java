@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @GetMapping("/")
-    public String defaultPage() {
-        return "home";   // must match home.html
+    public String home() {
+        return "home";
     }
 }

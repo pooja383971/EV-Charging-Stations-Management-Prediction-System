@@ -1,6 +1,6 @@
 package com.example.demo.controller;
+import com.example.demo.model.Station;
 
-import com.example.demo.entity.Station;
 import com.example.demo.repository.StationRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

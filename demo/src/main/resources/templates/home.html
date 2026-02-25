@@ -1,66 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home - EV Charging</title>
-
+    <title>EV Charging Platform</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-
-            background-image: url('/images/ev-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-        }
-
-        .overlay {
-            background: rgba(0, 0, 0, 0.6);
-            height: 100vh;
-            color: white;
-            text-align: center;
-            padding-top: 150px;
-        }
-
-        h1 {
-            font-size: 48px;
-        }
-
-        p {
-            font-size: 20px;
-        }
-
-        .btn {
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #00b894;
-            border: none;
-            color: white;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            background-color: #019874;
-        }
-    </style>
 </head>
-
 <body>
-
 <div class="overlay">
-    <h1>Welcome to EV Charging System ⚡</h1>
-    <p>Find stations • Add stations • Predict charging time</p>
 
-    <a href="/stations" class="btn">View Stations</a>
-    <a href="/prediction" class="btn">Charging Prediction</a>
+<div class="navbar">
+    <h2>⚡ <span style="color:#00ff7f;">Green</span> Volt</h2>
+
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/stations">Stations</a>
+        <a href="/prediction">Calculator</a>
+        <a href="/add">Add Station</a>
+    </div>
 </div>
 
+
+<div style="text-align:center; padding-top:120px;">
+    <h1 style="font-size:48px;">Powering Intelligent Charging Decisions</h1>
+    <p style="font-size:20px;">Find • Compare • Charge Efficiently</p>
+
+    <a href="/stations">
+        <button class="btn">View Stations</button>
+    </a>
+
+    <a href="/prediction">
+        <button class="btn">Start Charging</button>
+    </a>
+</div>
+
+</div>
 </body>
 </html>

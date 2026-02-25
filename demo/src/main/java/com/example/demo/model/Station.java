@@ -14,18 +14,26 @@ public class Station {
 
     private String name;
     private String location;
-    private int power;
+    private double power;
+    private double costPerKwh;
 
-    // ✅ Getters & Setters
+    public Station() {}
+
+    public Station(String name, String location, double power, double costPerKwh) {
+        this.name = name;
+        this.location = location;
+        this.power = power;
+        this.costPerKwh = costPerKwh;
+    }
+
     public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
     public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
     public String getLocation() { return location; }
-    public void setLocation(String location) { this.location = location; }
+    public double getPower() { return power; }
+    public double getCostPerKwh() { return costPerKwh; }
 
-    public int getPower() { return power; }
-    public void setPower(int power) { this.power = power; }
+    public void setName(String name) { this.name = name; }
+    public void setLocation(String location) { this.location = location; }
+    public void setPower(double power) { this.power = power; }
+    public void setCostPerKwh(double costPerKwh) { this.costPerKwh = costPerKwh; }
 }
