@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Charging Calculator</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="overlay">
+
+<div class="navbar">
+    <h2>⚡ Charging Calculator</h2>
+    <a href="/">Home</a>
+</div>
+
+<div class="form-card">
+
+<h2 style="text-align:center;">Predict Charging</h2>
+
+<form action="/predict" method="post">
+
+Battery Capacity (kWh):<br>
+<input type="number" name="batteryCapacity" min="1" max="100" required><br><br>
+
+Current Charge (%):<br>
+<input type="number" name="currentCharge" min="0" max="100" required><br><br>
+
+Target Charge (%):<br>
+<input type="number" name="targetCharge" min="1" max="100" required><br><br>
+
+Select Station:<br>
+<select name="stationId" style="width:100%; padding:8px;" required>
+    <option value="">-- Select Station --</option>
+    <option th:each="station : ${stations}"
+            th:value="${station.id}"
+            th:text="${station.name + ' | ' + station.power + 'kW | ₹' + station.costPerKwh + '/kWh'}">
+    </option>
+</select>
+
+<br><br>
+
+<button class="btn" type="submit">Predict</button>
+
+</form>
+
+<div th:if="${time}">
+    <h3>Charging Time: <span th:text="${time}"></span></h3>
+    <h3>Total Cost: ₹ <span th:text="${cost}"></span></h3>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>
