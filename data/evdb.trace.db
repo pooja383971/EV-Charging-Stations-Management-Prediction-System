@@ -1,0 +1,25 @@
+2026-02-13 19:57:16.633968+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM STATION STATION [*]STATION"; SQL statement:
+SELECT * FROM STATION STATION STATION [42000-240]
+2026-02-13 19:57:23.182869+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM STATION STATION [*]STATION STATION"; SQL statement:
+SELECT * FROM STATION STATION STATION STATION [42000-240]
+2026-02-13 19:57:32.965171+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM[*]"; expected "identifier"; SQL statement:
+SELECT * FROM [42001-240]
+2026-02-13 20:07:18.169582+05:30 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]JDBC URL:\000d\000ajdbc:h2:file:./data/evdb\000d\000a\000d\000aUsername:\000d\000asa\000d\000a\000d\000aPassword:\000d\000a(empty)"; SQL statement:
+JDBC URL:
+jdbc:h2:file:./data/evdb
+
+Username:
+sa
+
+Password:
+(empty) [42000-240]
+2026-02-13 20:08:17.078546+05:30 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]http://localhost:8080/h2-console"; expected "HELP"; SQL statement:
+http://localhost:8080/h2-console [42001-240]
+2026-02-14 11:48:09.439732+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO station (name, location, power) VALUES ([*]...)"; expected "), DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO station (name, location, power) VALUES (...) [42001-240]

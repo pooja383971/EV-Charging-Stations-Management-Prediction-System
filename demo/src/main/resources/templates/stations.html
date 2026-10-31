@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Charging Stations</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="overlay">
+
+<div class="navbar">
+    <h2>⚡ Stations</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/prediction">Calculator</a>
+        <a href="/add">
+            <button class="btn">Add Station</button>
+        </a>
+
+
+    </div>
+</div>
+
+<div class="cards-container">
+
+<div th:each="station : ${stations}" class="card">
+
+    <h3 th:text="${station.name}"></h3>
+    <p><strong>Location:</strong> <span th:text="${station.location}"></span></p>
+    <p><strong>Power:</strong> <span th:text="${station.power}"></span> kW</p>
+    <p><strong>Cost:</strong> ₹ <span th:text="${station.costPerKwh}"></span>/kWh</p>
+
+    <a th:href="'https://www.google.com/maps/search/' + ${station.location}"
+       target="_blank">
+        <button class="btn">View Map</button>
+    </a>
+
+</div>
+
+</div>
+
+</div>
+</body>
+</html>
